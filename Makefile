@@ -1,9 +1,16 @@
+MACHINE= $(shell uname -s)
+
+ifeq ($(MACHINE),Darwin)
+	GL_LIBS = -framework OpenGL -lGLEW
+	VORBIS_LIBS = -lvorbis
+else
+	GL_LIBS = -lGL -lGLEW
+	VORBIS_LIBS = -lvorbisidec
+endif
 
 SDL_CFLAGS = `sdl-config --cflags`
 SDL_LIBS = `sdl-config --libs`
-VORBIS_LIBS = -lvorbisidec
 ZLIB_LIBS = -lz
-GL_LIBS = -lGL -lGLEW
 
 DEFINES = -DBYPASS_PROTECTION
 #DEFINES = -DBYPASS_PROTECTION -DENABLE_PASSWORD_MENU -DNDEBUG
