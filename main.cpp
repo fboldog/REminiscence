@@ -19,6 +19,7 @@
 #include "fs.h"
 #include "game.h"
 #include "systemstub.h"
+#include <SDL.h>
 
 static const char *USAGE =
 	"REminiscence - Flashback Interpreter\n"
@@ -86,7 +87,6 @@ static Language detectLanguage(FileSystem *fs) {
 	return LANG_EN;
 }
 
-#undef main
 int main(int argc, char *argv[]) {
 	const char *dataPath = "DATA";
 	const char *savePath = ".";
